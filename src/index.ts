@@ -33,7 +33,7 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
             `
           }
           return `${menuBg}
-            [data-theme="light"] .ant-layout-sider-light.psm-layout-sideBar {
+            [data-theme='light'] .ant-layout-sider-light.psm-layout-sideBar {
               background-image: url(${menuBgPicPath});
               background-position: top;
               background-repeat: no-repeat;
@@ -44,15 +44,15 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
               background-color: transparent !important;
             }
             
-            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active.psm-menu-submenu {
+            [data-theme='light'] .psm-menu-light.psm-menu-vertical .psm-menu-item-active.psm-menu-submenu {
               color: ${primaryColor} !important;
             }
             
-            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu) {
+            [data-theme='light'] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu) {
               color: ${primaryColor} !important;
             }
             
-            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::before, .psm-menu-light .psm-menu-item-selected::before, .psm-menu-light .psm-menu-submenu-active-border::before {
+            [data-theme='light'] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::before, .psm-menu-light .psm-menu-item-selected::before, .psm-menu-light .psm-menu-submenu-active-border::before {
               position: absolute;
               top: 0;
               left: 0;
@@ -63,7 +63,7 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
               background-color: ${primaryColor};
             }
             
-            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::after, .psm-menu-light .psm-menu-item-selected::after, .psm-menu-light .psm-menu-submenu-active-border::after {
+            [data-theme='light'] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::after, .psm-menu-light .psm-menu-item-selected::after, .psm-menu-light .psm-menu-submenu-active-border::after {
               content: none !important;
             }
           `
