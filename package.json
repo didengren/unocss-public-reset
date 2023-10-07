@@ -1,6 +1,6 @@
 {
   "name": "@trinapower/unocss-public-reset",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A unocss preset for resetting common styles",
   "keywords": [
     "unocss",
