@@ -2,10 +2,6 @@ import type { Preset } from 'unocss'
 import presetAutoprefixer from 'unocss-preset-autoprefixer'
 
 export interface PublicStylesResetOption {
-  /**
-   * default number of nodes covered by enter animation
-   * @default 6
-   */
   menuBgPicPath?: string
   primaryColor?: string
 }
@@ -33,11 +29,11 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
-              }
+              }\n
             `
           }
-          return `${menuBg}\n
-            .ant-layout-sider-light.psm-layout-sideBar {
+          return `${menuBg}
+            [data-theme="light"] .ant-layout-sider-light.psm-layout-sideBar {
               background-image: url(${menuBgPicPath});
               background-position: top;
               background-repeat: no-repeat;
@@ -48,26 +44,26 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
               background-color: transparent !important;
             }
             
-            .psm-menu-light.psm-menu-vertical .psm-menu-item-active.psm-menu-submenu {
+            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active.psm-menu-submenu {
               color: ${primaryColor} !important;
             }
             
-            .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu) {
+            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu) {
               color: ${primaryColor} !important;
             }
             
-            .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::before {
+            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::before, .psm-menu-light .psm-menu-item-selected::before, .psm-menu-light .psm-menu-submenu-active-border::before {
               position: absolute;
               top: 0;
               left: 0;
               bottom: 0;
               display: block;
-              width: 2px;
+              width: 4px;
               content: '';
               background-color: ${primaryColor};
             }
             
-            .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::after {
+            [data-theme="light"] .psm-menu-light.psm-menu-vertical .psm-menu-item-active:not(.psm-menu-submenu)::after, .psm-menu-light .psm-menu-item-selected::after, .psm-menu-light .psm-menu-submenu-active-border::after {
               content: none !important;
             }
           `
