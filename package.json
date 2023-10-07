@@ -1,0 +1,73 @@
+{
+  "name": "@trinapower/unocss-public-reset",
+  "version": "0.0.1",
+  "description": "A unocss preset for resetting common styles",
+  "keywords": [
+    "unocss",
+    "unocss-preset",
+    "unocss-public-reset"
+  ],
+  "homepage": "https://github.com/didengren/unocss-public-reset#readme",
+  "bugs": {
+    "url": "https://github.com/didengren/unocss-public-reset/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/didengren/unocss-public-reset.git"
+  },
+  "author": "Sam Xu <twonian@gmail.com>",
+  "license": "MIT",
+  "packageManager": "pnpm@7.11.0",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "start": "esno src/index.ts",
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "lint": "eslint --cache --max-warnings 100 \"src/**/*.ts\" --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "release": "bumpp --commit --push --tag && pnpm publish --access public"
+  },
+  "dependencies": {
+    "unocss-preset-autoprefixer": "^0.0.6"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.41.0",
+    "@vitest/coverage-v8": "^0.34.3",
+    "bumpp": "^9.2.0",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.48.0",
+    "esno": "^0.17.0",
+    "typescript": "^5.2.2",
+    "unbuild": "^2.0.0",
+    "unocss": "^0.55.3",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.3"
+  },
+  "peerDependencies": {
+    "unocss": ">= 0.55.3 < 1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.cjs"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true, // https://www.typescriptlang.org/tsconfig#allowSyntheticDefaultImports
+    "strictFunctionTypes": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": ["esnext"],
+    "noImplicitAny": true,
+    "removeComments": true,
+    "paths": {
+      "unocss-public-reset": [
+        "./src/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "./src/**/*.ts", "./test/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules", "dist"
+  ]
+}
