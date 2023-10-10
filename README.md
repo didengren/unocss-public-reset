@@ -15,13 +15,13 @@ pnpm add @trinapower/unocss-public-reset -D
 ```ts
 // uno.config.ts
 import { defineConfig, presetAttributify, presetUno } from 'unocss'
-import publicStylesReset from '@trinapower/unocss-public-reset'
+import { adminStylesReset } from '@trinapower/unocss-public-reset'
 
 export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
-    publicStylesReset()
+    adminStylesReset({ projBrand: 'psm' })
   ],
 })
 ```

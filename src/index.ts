@@ -1,24 +1,34 @@
 import type { Preset } from 'unocss'
 import presetAutoprefixer from 'unocss-preset-autoprefixer'
 
-export interface PublicStylesResetOption {
+export interface AdminStylesResetOption {
   projBrand: string
   menuBgPicPath?: string
   primaryColor?: string
 }
 
-const defaultOption: Required<PublicStylesResetOption> = {
+export interface OverseasAdminStylesResetOption {
+  projBrand: string
+  primaryColor?: string
+}
+
+const defaultOption: Required<AdminStylesResetOption> = {
   projBrand: 'psm',
   menuBgPicPath: '',
   primaryColor: '#3a78f2',
 }
 
-export default function publicStylesReset(option?: PublicStylesResetOption): Preset {
+const overseasDefaultOption: Required<OverseasAdminStylesResetOption> = {
+  projBrand: 'psm',
+  primaryColor: '#1990FF',
+}
+
+export function adminStylesReset(option?: AdminStylesResetOption): Preset {
   const config = Object.assign({}, defaultOption, option)
   const { projBrand, menuBgPicPath, primaryColor } = config
 
   return {
-    name: '@trinapower/unocss-public-reset',
+    name: 'admin-styles-reset',
     presets: [presetAutoprefixer()],
     preflights: [
       {
@@ -26,7 +36,7 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
           let menuBg = ''
           if (menuBgPicPath) {
             menuBg += `
-              .ant-layout-sider-light.${projBrand}-layout-sideBar {
+              [data-theme='light'] .ant-layout-sider-light.${projBrand}-layout-sideBar {
                 background-image: url(${menuBgPicPath});
                 background-position: top;
                 background-repeat: no-repeat;
@@ -35,13 +45,6 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
             `
           }
           return `${menuBg}
-            [data-theme='light'] .ant-layout-sider-light.${projBrand}-layout-sideBar {
-              background-image: url(${menuBgPicPath});
-              background-position: top;
-              background-repeat: no-repeat;
-              background-size: cover;
-            }
-            
             .${projBrand}-menu-light {
               background-color: transparent !important;
             }
@@ -63,6 +66,40 @@ export default function publicStylesReset(option?: PublicStylesResetOption): Pre
               width: 4px;
               content: '';
               background-color: ${primaryColor};
+            }
+            
+            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu)::after, .${projBrand}-menu-light .${projBrand}-menu-item-selected::after, .${projBrand}-menu-light .${projBrand}-menu-submenu-active-border::after {
+              content: none !important;
+            }
+          `
+        },
+      },
+    ],
+  }
+}
+
+export function overseasAdminStylesReset(option?: OverseasAdminStylesResetOption): Preset {
+  const config = Object.assign({}, overseasDefaultOption, option)
+  const { projBrand, primaryColor } = config
+
+  return {
+    name: 'overseas-admin-styles-reset',
+    presets: [presetAutoprefixer()],
+    preflights: [
+      {
+        getCSS: () => {
+          return `
+            .${projBrand}-menu-light {
+              background-color: transparent !important;
+            }
+            
+            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active.${projBrand}-menu-submenu {
+              color: ${primaryColor} !important;
+            }
+            
+            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu) {
+              color: #fff !important;
+              background-color: #1990FF !important;
             }
             
             [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu)::after, .${projBrand}-menu-light .${projBrand}-menu-item-selected::after, .${projBrand}-menu-light .${projBrand}-menu-submenu-active-border::after {
