@@ -97,9 +97,21 @@ export function overseasAdminStylesReset(option?: OverseasAdminStylesResetOption
               color: ${primaryColor} !important;
             }
             
-            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu) {
+            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu), .${projBrand}-menu-light .${projBrand}-menu-item-selected, .${projBrand}-menu-light .${projBrand}-menu-submenu-active-border {
               color: #fff !important;
-              background-color: #1990FF !important;
+            }
+
+            [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu)::before, .${projBrand}-menu-light .${projBrand}-menu-item-selected::before, .${projBrand}-menu-light .${projBrand}-menu-submenu-active-border::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              bottom: 0;
+              right: 0;
+              display: block;
+              width: calc(100% - 10px -10px);
+              border-radius: 8px;
+              content: '';
+              background-color: ${primaryColor};
             }
             
             [data-theme='light'] .${projBrand}-menu-light.${projBrand}-menu-vertical .${projBrand}-menu-item-active:not(.${projBrand}-menu-submenu)::after, .${projBrand}-menu-light .${projBrand}-menu-item-selected::after, .${projBrand}-menu-light .${projBrand}-menu-submenu-active-border::after {
